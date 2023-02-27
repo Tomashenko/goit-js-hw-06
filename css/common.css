@@ -23,3 +23,20 @@ button {
   cursor: pointer;
 }
 
+.gallery {
+  display: flex;
+  list-style: none;
+}
+
+.gallery__item
+{
+margin-right: 30px;
+
+}
+
+.gallery__item:last-child { margin-right: 0;}
+
+.gallery__img {
+width: 600px;
+height: 400px;
+}

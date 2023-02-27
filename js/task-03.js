@@ -16,21 +16,10 @@ const images = [
 
 const imagesElements = document.querySelector('.gallery');
 
-const makeImagesGallery = images => {
-  return images.map(image => {
-    const itemEl = document.createElement('li');
-    itemEl.classList.add('gallery__item')
-    const imageEl = document.createElement('img');
-    imageEl.src = image.url;
-    imageEl.alt = image.alt;
-    itemEl.append(imageEl);
+const makeImagesGallery =
+  images.map((image) => `<li class ="gallery__item"><img src = "${image.url}" alt = "${image.alt}" class ="gallery__img"></li>`
+).join('');
 
-    return itemEl;
-  });
-};
-
-const elements = makeImagesGallery(images);
-imagesElements.append(...elements);
-//imagesElements.insertAdjacentHTML("afterbegin", ...elements);
+imagesElements.insertAdjacentHTML("afterbegin", makeImagesGallery);
 console.log(imagesElements);
 
