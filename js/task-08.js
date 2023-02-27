@@ -5,18 +5,24 @@ form.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
 
+    const formEl = event.currentTarget.elements;
+
+    const email = formEl.email.value;
+
+    const password = formEl.password.value;
+
+    if (email === '' || password === ''){
+        alert ('Будь-ласка заповніть всі поля')
+    }
+
+    const formData = {
+        email,
+        password
+    };
+    
     console.log(formData);
-
-    formData.forEach((value, name) => {
-        console.log('onFormSubmit -> name', name);
-        console.log('onFormSubmit -> value', value);
-        if (value === ''){
-            alert ('Будь-ласка заповніть всі поля')
-        }
-    });
-
+  
     form.reset();
 }
 
